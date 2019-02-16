@@ -14,6 +14,7 @@ class TopologyVersionsWidget extends StatelessWidget {
       itemCount: _topologyVersionsDTO.topologies.length,
       itemBuilder: (context, index) =>
           TopologyWidget(_topologyVersionsDTO.topologies[index]),
+      shrinkWrap: true,
     );
   }
 }

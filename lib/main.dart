@@ -35,6 +35,7 @@ class AgenciesViewState extends State<AgenciesView> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => setState(() => _body = buildPost()),
+        child: Icon(Icons.cloud_download),
       ),
       body: _body,
     );

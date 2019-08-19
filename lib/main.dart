@@ -7,6 +7,14 @@ import 'package:easy_commute/widgets/agencies_widget.dart';
 
 void main() => runApp(MyApp());
 
+final ThemeData _myAppTheme = _buildMyAppTheme();
+
+ThemeData _buildMyAppTheme() {
+  final ThemeData base = ThemeData.light();
+  return base.copyWith(
+      buttonTheme: base.buttonTheme.copyWith(buttonColor: base.accentColor));
+}
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

@@ -51,9 +51,9 @@ class AgenciesViewState extends State<AgenciesView> {
           if (snapshot.hasData) {
             return AgenciesWidget(snapshot.data);
           } else if (snapshot.hasError) {
-            return Text("${snapshot.error}");
+            return SafeArea(child: Center(child: Text("${snapshot.error}")));
           }
-          return CircularProgressIndicator();
+          return SafeArea(child: Center(child: CircularProgressIndicator()));
         });
   }
 }

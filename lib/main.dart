@@ -4,7 +4,6 @@ import 'package:easy_commute/DTO/agencies_dto.dart';
 import 'package:easy_commute/dto_fetcher.dart';
 import 'package:easy_commute/widgets/agencies_widget.dart';
 
-
 void main() => runApp(MyApp());
 
 final ThemeData _myAppTheme = _buildMyAppTheme();
@@ -18,7 +17,31 @@ ThemeData _buildMyAppTheme() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Easy Commute', home: AgenciesView());
+    return MaterialApp(
+        title: 'Easy Commute', home: OOBEView(), theme: _myAppTheme);
+  }
+}
+
+class OOBEView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: SafeArea(
+            child: Center(
+                child: Column(
+      children: <Widget>[
+        Text('Welcome', style: new TextStyle(fontSize: 28)),
+        Text('Select transport provider'),
+        RaisedButton(
+          child: Text('Begin'),
+          color: ThemeData.light().accentColor,
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => AgenciesView()));
+          },
+        )
+      ],
+    ))));
   }
 }
 
@@ -36,11 +59,7 @@ class AgenciesViewState extends State<AgenciesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => setState(() => _body = buildPost()),
-        child: Icon(Icons.cloud_download),
-      ),
-      body: _body,
+      body: buildPost(),
     );
   }
 

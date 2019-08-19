@@ -30,9 +30,6 @@ class AgenciesViewState extends State<AgenciesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Easy Commute'),
-      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => setState(() => _body = buildPost()),
         child: Icon(Icons.cloud_download),

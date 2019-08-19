@@ -31,9 +31,7 @@ class AgenciesView extends StatefulWidget {
 
 class AgenciesViewState extends State<AgenciesView> {
   final DtoFetcher _dtoFetcher = DtoFetcher();
-  Widget _body = Center(
-    child: Text('Start scan'),
-  );
+  Widget _body = SafeArea(child: Center(child: Text('Start scan')));
 
   @override
   Widget build(BuildContext context) {

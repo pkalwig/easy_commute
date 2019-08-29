@@ -10,8 +10,7 @@ final ThemeData _myAppTheme = _buildMyAppTheme();
 
 ThemeData _buildMyAppTheme() {
   final ThemeData base = ThemeData.light();
-  return base.copyWith(
-      buttonTheme: base.buttonTheme.copyWith(buttonColor: base.accentColor));
+  return base;
 }
 
 class MyApp extends StatelessWidget {
@@ -30,15 +29,20 @@ class OOBEView extends StatelessWidget {
             child: Center(
                 child: Column(
       children: <Widget>[
-        Text('Welcome', style: new TextStyle(fontSize: 28)),
-        Text('Select transport provider'),
+        Text(
+          'Welcome',
+          style: Theme.of(context).textTheme.headline,
+        ),
+        Text('Select transport provider',
+            style: Theme.of(context).textTheme.subhead),
         RaisedButton(
           child: Text('Begin'),
-          color: ThemeData.light().accentColor,
           onPressed: () {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => AgenciesView()));
           },
+          color: Theme.of(context).colorScheme.secondary,
+          textTheme: ButtonTextTheme.primary,
         )
       ],
     ))));

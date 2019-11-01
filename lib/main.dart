@@ -17,11 +17,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Easy Commute', home: OOBEView(), theme: _myAppTheme);
+        title: 'Easy Commute',
+        home: WelcomeView(),
+        theme: _myAppTheme);
   }
 }
 
-class OOBEView extends StatelessWidget {
+class WelcomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -29,25 +29,37 @@ class WelcomeView extends StatelessWidget {
     return Scaffold(
         body: SafeArea(
             child: Center(
-                child: Column(
-      children: <Widget>[
-        Text(
-          'Welcome',
-          style: Theme.of(context).textTheme.headline,
-        ),
-        Text('Select transport provider',
-            style: Theme.of(context).textTheme.subhead),
-        RaisedButton(
-          child: Text('Begin'),
-          onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => AgenciesView()));
-          },
-          color: Theme.of(context).colorScheme.secondary,
-          textTheme: ButtonTextTheme.primary,
-        )
-      ],
-    ))));
+                child:
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Text(
+                      'Welcome',
+                      style: Theme
+                          .of(context)
+                          .textTheme
+                          .headline,
+                    ),
+                    Text('Select transport provider',
+                        style: Theme
+                            .of(context)
+                            .textTheme
+                            .subhead),
+                    RaisedButton(
+                      child: Text('Begin'),
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(
+                                builder: (context) => AgenciesView()));
+                      },
+                      color: Theme
+                          .of(context)
+                          .colorScheme
+                          .secondary,
+                      textTheme: ButtonTextTheme.primary,
+                    )
+                  ],
+                ))));
   }
 }
 
@@ -60,13 +72,14 @@ class AgenciesView extends StatefulWidget {
 
 class AgenciesViewState extends State<AgenciesView> {
   final DtoFetcher _dtoFetcher = DtoFetcher();
-  Widget _body = SafeArea(child: Center(child: Text('Start scan')));
+  var _body = Center(child: Text('Start scan'));
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: buildPost(),
-    );
+      body: SafeArea(
+          child: buildPost()
+    ));
   }
 
   FutureBuilder<AgenciesDTO> buildPost() {
@@ -76,9 +89,9 @@ class AgenciesViewState extends State<AgenciesView> {
           if (snapshot.hasData) {
             return AgenciesWidget(snapshot.data);
           } else if (snapshot.hasError) {
-            return SafeArea(child: Center(child: Text("${snapshot.error}")));
+            return Center(child: Text("${snapshot.error}"));
           }
-          return SafeArea(child: Center(child: CircularProgressIndicator()));
+          return Center(child: CircularProgressIndicator());
         });
   }
 }

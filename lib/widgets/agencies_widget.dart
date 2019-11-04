@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:easy_commute/DTO/agencies_dto.dart';
+import 'package:easy_commute/originDTO/origin_agencies_dto.dart';
 import 'package:easy_commute/widgets/agency_widget.dart';
 
 class AgenciesWidget extends StatelessWidget {
-  final AgenciesDTO _agenciesDto;
+  final OriginAgenciesDTO _agenciesDto;
 
   AgenciesWidget(this._agenciesDto);
 

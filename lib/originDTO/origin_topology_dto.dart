@@ -1,12 +1,12 @@
-class TopologyDTO {
+class OriginTopologyDTO {
   final int versionNumber;
   final String startDate;
   final String endDate;
 
-  TopologyDTO({this.versionNumber, this.startDate, this.endDate});
+  OriginTopologyDTO({this.versionNumber, this.startDate, this.endDate});
 
-  factory TopologyDTO.fromJson(Map<String, dynamic> json) {
-    return TopologyDTO(
+  factory OriginTopologyDTO.fromJson(Map<String, dynamic> json) {
+    return OriginTopologyDTO(
         versionNumber: json['versionNumber'],
         startDate: json['startDate'],
         endDate: json['endDate']);

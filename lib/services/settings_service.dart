@@ -8,6 +8,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 abstract class ISettingService {
   Future<AgencyDTO> getAgency();
 
+  Future<bool> isFirstRun();
+
   Future setAgency(OriginAgencyDTO agencyDTO);
 }
 
@@ -34,4 +36,16 @@ class SettingsService implements ISettingService {
 
   Future<SharedPreferences> getSharedPreferencesInstance() async =>
     await SharedPreferences.getInstance();
+
+  @override
+  Future<bool> isFirstRun() async {
+    final agency = getAgency();
+    bool isFirstRun;
+    if (agency == null) {
+      isFirstRun = true;
+    } else {
+      isFirstRun = false;
+    }
+    return isFirstRun;
+  }
 }

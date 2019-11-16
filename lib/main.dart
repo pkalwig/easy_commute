@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:easy_commute/views/welcome_view.dart';
+import 'package:easy_commute/views/splash_view.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MaterialApp(
       title: 'Easy Commute',
-      home: WelcomeView(),
+      home: SplashView(),
       theme: _myAppTheme
   );
 }

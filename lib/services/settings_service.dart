@@ -20,6 +20,9 @@ class SettingsService implements ISettingService {
   Future<AgencyDTO> getAgency() async {
     final prefs = await getSharedPreferencesInstance();
     final agencyJson = prefs.getString(savedAgencyPreferenceKey);
+    if (agencyJson == null) {
+      return null;
+    }
     final agencyMap = json.decode(agencyJson);
     final agencyDTO = AgencyDTO.fromJson(agencyMap);
     return agencyDTO;

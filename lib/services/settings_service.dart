@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:easy_commute/DTO/agency_dto.dart';
 import 'package:easy_commute/originDTO/origin_agency_dto.dart';
+import 'package:easy_commute/shared_preferences_keys.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class ISettingService {
@@ -14,12 +15,10 @@ abstract class ISettingService {
 }
 
 class SettingsService implements ISettingService {
-  final String savedAgencyPreferenceKey = "preferences.savedAgency";
-
   @override
   Future<AgencyDTO> getAgency() async {
     final prefs = await getSharedPreferencesInstance();
-    final agencyJson = prefs.getString(savedAgencyPreferenceKey);
+    final agencyJson = prefs.getString(SharedPreferencesKeys.savedAgency);
     if (agencyJson == null) {
       return null;
     }
@@ -34,11 +33,11 @@ class SettingsService implements ISettingService {
     final agencyDTO = originAgencyDTO.convertToAgencyDTO();
     final agencyMap = agencyDTO.toJson();
     final agencyJson = json.encode(agencyMap);
-    prefs.setString(savedAgencyPreferenceKey, agencyJson);
+    prefs.setString(SharedPreferencesKeys.savedAgency, agencyJson);
   }
 
   Future<SharedPreferences> getSharedPreferencesInstance() async =>
-    await SharedPreferences.getInstance();
+      await SharedPreferences.getInstance();
 
   @override
   Future<bool> isFirstRun() async {

@@ -41,7 +41,7 @@ class SettingsService implements ISettingService {
 
   @override
   Future<bool> isFirstRun() async {
-    final agency = getAgency();
+    final agency = await getAgency();
     bool isFirstRun;
     if (agency == null) {
       isFirstRun = true;

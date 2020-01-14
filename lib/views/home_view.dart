@@ -1,7 +1,8 @@
-import 'package:easy_commute/DTO/agency_dto.dart';
+import 'package:easy_commute/dto_fetcher.dart';
+import 'package:easy_commute/originDTO/origin_scheaduled_routes_dto.dart';
+import 'package:easy_commute/widgets/lines_widget.dart';
 import 'package:flutter/material.dart';
 
-import 'package:easy_commute/services/settings_service.dart';
 
 class HomeView extends StatelessWidget {
 
@@ -9,11 +10,11 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) => Scaffold(
       body: SafeArea(
         child: Center(
-          child: FutureBuilder<AgencyDTO>(
-            future: SettingsService().getAgency(),
+          child: FutureBuilder<OriginScheaduledRoutesDTO>(
+            future: DtoFetcher().fetchScheaduledRoutes(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                return Text(snapshot.data.name);
+                return LinesWidget(lines: snapshot.data.scheaduledRoutes.values.first.routes);
               }
               else if (snapshot.hasError) {
                 return Center(child: Text("${snapshot.error}"));

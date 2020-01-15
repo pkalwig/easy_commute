@@ -48,6 +48,9 @@ flutter_*.png
 linked_*.ds
 unlinked.ds
 unlinked_spec.ds
+*.inject.summary
+*.inject.dart
+*.g.dart
 
 # Android related
 **/android/**/gradle-wrapper.jar

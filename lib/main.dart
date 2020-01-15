@@ -1,8 +1,12 @@
+import 'package:easy_commute/di/app_container.dart';
 import 'package:flutter/material.dart';
 
 import 'package:easy_commute/views/splash_view.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  final container = await AppContainer.create();
+  runApp(container.app);
+}
 
 final ThemeData _myAppTheme = _buildMyAppTheme();
 

@@ -21,6 +21,7 @@ dependencies:
     git:
       url: https://github.com/google/inject.dart.git
       path: package/inject
+      ref: 7c3cbf6
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -35,6 +36,7 @@ dev_dependencies:
     git:
       url: https://github.com/google/inject.dart.git
       path: package/inject_generator
+      ref: 7c3cbf6
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec

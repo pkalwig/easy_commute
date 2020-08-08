@@ -1,4 +1,5 @@
 import 'package:easy_commute/originDTO/origin_route_dto.dart';
+import 'package:easy_commute/views/line_timetable_view.dart';
 import 'package:flutter/material.dart';
 
 class LinesWidget extends StatelessWidget {
@@ -16,7 +17,14 @@ class LinesWidget extends StatelessWidget {
         itemBuilder: (context, index) => Card(
           child: InkResponse(
             highlightShape: BoxShape.rectangle,
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LineTimetableView(lines[index]),
+                ),
+              );
+            },
             child: Center(
               child: Text(lines[index].routeShortName),
             ),

@@ -8,13 +8,17 @@ class LinesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      itemCount: lines.length,
-      gridDelegate:
-          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
-      itemBuilder: (context, index) => Card(
-        child: Center(
-          child: Text(lines[index].routeShortName),
+    return OrientationBuilder(
+      builder: (context, orientation) => GridView.builder(
+        itemCount: lines.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: orientation == Orientation.portrait ? 5 : 9),
+        itemBuilder: (context, index) => Card(
+          child: GridTile(
+            child: Center(
+              child: Text(lines[index].routeShortName),
+            ),
+          ),
         ),
       ),
     );

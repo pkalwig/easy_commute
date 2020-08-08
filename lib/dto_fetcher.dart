@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:easy_commute/originDTO/origin_agencies_dto.dart';
 import 'package:easy_commute/data_fetch_urls.dart';
 import 'package:easy_commute/data_fetcher.dart';
-import 'package:easy_commute/originDTO/origin_scheaduled_routes_dto.dart';
+import 'package:easy_commute/originDTO/origin_scheduled_routes_dto.dart';
 
 class DtoFetcher {
   final DataFetcher _dataFetcher = DataFetcher();
@@ -18,11 +18,11 @@ class DtoFetcher {
     return result;
   }
 
-  Future<OriginScheaduledRoutesDTO> fetchScheaduledRoutes() async {
-    OriginScheaduledRoutesDTO result;
+  Future<OriginScheduledRoutesDTO> fetchScheduledRoutes() async {
+    OriginScheduledRoutesDTO result;
     try {
       String fetchResult = await _dataFetcher.fetchPost(DataFetchUrl.scheaduledRoutes);
-      result = OriginScheaduledRoutesDTO.fromJson(json.decode(fetchResult));
+      result = OriginScheduledRoutesDTO.fromJson(json.decode(fetchResult));
     } finally {}
     return result;
   }

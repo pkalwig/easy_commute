@@ -14,7 +14,9 @@ class LinesWidget extends StatelessWidget {
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: orientation == Orientation.portrait ? 5 : 9),
         itemBuilder: (context, index) => Card(
-          child: GridTile(
+          child: InkResponse(
+            highlightShape: BoxShape.rectangle,
+            onTap: () {},
             child: Center(
               child: Text(lines[index].routeShortName),
             ),

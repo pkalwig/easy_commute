@@ -1,4 +1,4 @@
-class LineStopTimeDTO {
+class OriginLineStopTimeDTO {
   final int routeId;
   final int tripId;
   final int agencyId;
@@ -26,7 +26,7 @@ class LineStopTimeDTO {
   final Null shapeDistTraveled;
   final Null timePoint;
 
-  LineStopTimeDTO({this.routeId,
+  OriginLineStopTimeDTO({this.routeId,
     this.tripId,
     this.agencyId,
     this.topologyVersionId,
@@ -53,8 +53,8 @@ class LineStopTimeDTO {
     this.shapeDistTraveled,
     this.timePoint});
 
-  factory LineStopTimeDTO.fromJson(Map<String, dynamic> json) =>
-      LineStopTimeDTO(
+  factory OriginLineStopTimeDTO.fromJson(Map<String, dynamic> json) =>
+      OriginLineStopTimeDTO(
           routeId: json['routeId'],
           tripId: json['tripId'],
           agencyId: json['agencyId'],

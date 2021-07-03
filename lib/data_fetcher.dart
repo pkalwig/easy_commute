@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 class DataFetcher {
   Future<String> fetchPost(String url) async {
-    http.Response response = await http.get(url);
+    http.Response response = await http.get(Uri.parse(url));
     if (response.statusCode != 200) {
       throw NetworkException();
     }

@@ -10,16 +10,14 @@ class WelcomeView extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      Text('Welcome', style: Theme.of(context).textTheme.headline),
-                      Text('Select transport provider', style: Theme.of(context).textTheme.subhead),
-                      RaisedButton(
+                      Text('Welcome', style: Theme.of(context).textTheme.headline5),
+                      Text('Select transport provider', style: Theme.of(context).textTheme.subtitle1),
+                      ElevatedButton(
                         child: Text('Begin'),
                         onPressed: () {
                           Navigator.push(context,
                               MaterialPageRoute(builder: (context) => AgenciesView()));
                           },
-                        color: Theme.of(context).colorScheme.secondary,
-                        textTheme: ButtonTextTheme.primary
                       )
                     ]
                   )
